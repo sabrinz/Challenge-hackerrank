@@ -1,0 +1,54 @@
+def process_list_operations():
+  """
+  Memproses operasi daftar yang diberikan.
+
+  Args:
+    Tidak ada argumen.
+
+  Returns:
+    Tidak ada nilai yang dikembalikan.
+  """
+  # Membaca jumlah perintah.
+  num_commands = int(input("Masukkan jumlah perintah: "))
+
+  # Memulai daftar kosong.
+  list = []
+
+  # Memproses setiap perintah.
+  for _ in range(num_commands):
+    command_line = input("Masukkan perintah: ")
+    command_parts = command_line.split()
+    command = command_parts[0]
+
+    # Menangani setiap jenis perintah.
+    if command == "insert":
+      index = int(command_parts[1])
+      element = int(command_parts[2])
+      list.insert(index, element)
+      print(f"Daftar setelah insert: {list}")
+    elif command == "print":
+      print(f"Daftar saat ini: {list}")
+    elif command == "remove":
+      element = int(command_parts[1])
+      list.remove(element)
+      print(f"Daftar setelah remove: {list}")
+    elif command == "append":
+      element = int(command_parts[1])
+      list.append(element)
+      print(f"Daftar setelah append: {list}")
+    elif command == "sort":
+      list.sort()
+      print(f"Daftar setelah sort: {list}")
+    elif command == "pop":
+      popped_element = list.pop()
+      print(f"Elemen yang dihapus: {popped_element}")
+      print(f"Daftar setelah pop: {list}")
+    elif command == "reverse":
+      list.reverse()
+      print(f"Daftar setelah reverse: {list}")
+    else:
+      print(f"Perintah tidak valid: {command}")
+
+
+if __name__ == "__main__":
+  process_list_operations()
