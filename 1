@@ -1,0 +1,35 @@
+def find_second_lowest(students):
+  """
+  Menemukan nama murid dengan nilai terendah kedua.
+
+  Args:
+      students: Daftar daftar bersarang, di mana setiap subdaftar berisi [nama, nilai].
+
+  Returns:
+      Daftar nama murid dengan nilai terendah kedua, diurutkan secara alfabet.
+  """
+  # Mengurutkan murid berdasarkan nilai.
+  students.sort(key=lambda student: student[1])
+
+  # Menemukan nilai terendah kedua (kecuali nilai terendah).
+  second_lowest_grade = students[1][1] if len(students) > 1 else None
+
+  # Menemukan murid dengan nilai terendah kedua.
+  second_lowest_students = []
+  for student in students:
+    if student[1] == second_lowest_grade:
+      second_lowest_students.append(student[0])
+
+  return sorted(second_lowest_students)  # Mengurutkan nama secara alfabet
+
+# Contoh penggunaan
+students = [
+    ["SABRI", 37.21],
+    ["UCUP", 37.21],
+    ["DADANG", 37.2],
+    ["SUEP", 41],
+    ["NARUTO", 39],
+]
+
+second_lowest = find_second_lowest(students)
+print(*second_lowest, sep="\n")  # Mencetak setiap nama pada baris baru
